@@ -5,6 +5,11 @@ import { getAuth } from "./auth";
 import { getIntegrationWhatsappChannels } from "./integrations";
 import { getWhatsapMessageTemplates } from "./template";
 
+/**
+ * Creating qontak client instance
+ * @param options
+ * @returns qontak client
+ */
 export const createClient = (options: ExposedOptions) => {
   const a = axios.create({
     baseURL: options.baseUrl ?? "https://service-chat.qontak.com",
