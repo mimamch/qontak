@@ -1,15 +1,26 @@
 {
   "name": "@mimamch/qontak",
-  "version": "1.0.0",
+  "version": "0.0.1-alpha",
+  "private": false,
   "description": "Mekari Qontak API",
   "scripts": {
+    "build": "pnpm tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "exports": {
-    "default": "./dist/index.js"
+  "main": "./dist/index.js",
+  "types": "./lib/main.d.ts",
+  "keywords": [
+    "mekari",
+    "qontak",
+    "whatasapp",
+    "api"
+  ],
+  "author": "Muhammad Imam Choirudin <mimamch28@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mimamch/qontak.git"
   },
-  "keywords": [],
-  "author": "mimamch@gmail.com",
+  "homepage": "https://github.com/mimamch/qontak",
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^22.13.1",
