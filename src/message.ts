@@ -1,4 +1,5 @@
 import { Options } from "./options";
+import { PaginationResponse } from "./pagination";
 
 export type SendMessageParameters = {
   header?: {
@@ -101,4 +102,59 @@ export const sendWhatsappMessageOutboundDirect =
       }
     );
     return response.data.data as BroadcastsWhatsappDirectResponse;
+  };
+
+type GetLogWhatsappMessageOutboundDirectResponse = {
+  data: {
+    id: string;
+    organization_id: string;
+    messages_broadcast_id: string;
+    contact_phone_number: string;
+    contact_full_name: string;
+    status: string;
+    whatsapp_message_id: string;
+    whatsapp_error_message: string;
+    messages_response: {
+      messages: {
+        id: string;
+      }[];
+      meta: {
+        api_status: string;
+        version: string;
+      };
+      sent: {
+        statuses: {
+          id: string;
+          status: string;
+          timestamp: string;
+          recipient_id: string;
+        }[];
+      };
+      delivered: {
+        statuses: {
+          id: string;
+          recipient_id: string;
+          status: string;
+          timestamp: string;
+        }[];
+      };
+    };
+    created_at: string;
+  };
+
+  meta: {
+    pagination: PaginationResponse;
+  };
+};
+
+/**
+ * @param id direct message id
+ */
+export const getLogWhatsappMessageOutboundDirect =
+  (options: Options) => async (id: string) => {
+    await options.authenticate();
+    const response = await options.axios.get(
+      `/api/open/v1/broadcasts/${id}/whatsapp/log`
+    );
+    return response.data as GetLogWhatsappMessageOutboundDirectResponse;
   };

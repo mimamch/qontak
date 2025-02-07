@@ -1,6 +1,6 @@
 {
   "name": "@mimamch/qontak",
-  "version": "0.0.3-alpha",
+  "version": "0.0.4-alpha",
   "private": false,
   "description": "Mekari Qontak API",
   "scripts": {

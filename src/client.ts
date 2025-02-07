@@ -1,5 +1,8 @@
 import axios from "axios";
-import { sendWhatsappMessageOutboundDirect } from "./message";
+import {
+  getLogWhatsappMessageOutboundDirect,
+  sendWhatsappMessageOutboundDirect,
+} from "./message";
 import { Options, ExposedOptions } from "./options";
 import { getAuth } from "./auth";
 import { getIntegrationWhatsappChannels } from "./integrations";
@@ -36,5 +39,7 @@ export const createClient = (options: ExposedOptions) => {
     sendWhatsappMessageOutboundDirect: sendWhatsappMessageOutboundDirect(opt),
     getIntegrationWhatsappChannels: getIntegrationWhatsappChannels(opt),
     getWhatsapMessageTemplates: getWhatsapMessageTemplates(opt),
+    getLogWhatsappMessageOutboundDirect:
+      getLogWhatsappMessageOutboundDirect(opt),
   };
 };
